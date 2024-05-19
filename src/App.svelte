@@ -1,68 +1,38 @@
 <script>
-	let firstName = "Amila";
-	let lastName = "Prasad Bandara";
-	let color = 'blue';
-	let showText = false;
-	let users = [
-		{
-			id: '1',
-			name: "Amila"
-		},
-		{
-			id: '2',
-			name: "Kamal"
-		},
-		{
-			id: '3',
-			name: "chamara"
-		},
-		{
-			id: '4',
-			name: "Nimal"
-		},
+  import FeedbackForm from "./components/FeedbackForm.svelte";
+	import FeedbackList from "./components/FeedbackList.svelte";
+  import FeedbackStats from "./components/FeedbackStats.svelte";
+	let feedback = [
+		
 	]
 
-	$: name = firstName + " "+ lastName
-	
+	// $:count = feedback.length
+	// $:average = feedback.reduce((a,{rating}) => a + rating,0)/feedback.length
 
-	const toggle = () =>{
-		color = color === 'blue'? 'red':'blue';
-		showText = !showText;
-	}
+	// const deleteFeedback  = (e)=>{
+	// 	const itemId = e.detail
+	// 	feedback = feedback.filter((item) => item.id != itemId	)
+	// }
+	// const feedbackHandler  = (e)=>{
+	// 	const new_feedback = {
+	// 		id: e.detail.id,
+	// 		rating: e.detail.rating,
+	// 		text: e.detail.text,
+	// 	}
+	// 	feedback = [new_feedback , ...feedback];
+	// 	// feedback = 
+	// 	console.log(new_feedback);
+	// }
+
 </script>
 
-<main>
-	<h1 style="color: {color};">Hello {name}!</h1>
-	{#if showText}
-		<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	{:else}
-	 <p>NO Text found</p>
-	{/if}
-	<button on:click={toggle}>Change Color</button>
-
-	{#each users as  user (user.id)}
-		<h3>{user.id} : {user.name}</h3>
-	{/each}
+<main class="container">
+	<FeedbackForm />
+	<FeedbackStats />
+	<FeedbackList/>
+	<!-- <FeedbackList   on:delete-feedback={deleteFeedback} /> -->
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
