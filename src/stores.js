@@ -9,7 +9,7 @@ export const FeedbackStore = writable([
     {
         id:2,
         rating: 10,
-        text: "Lorem Ipsum has been the industry's standard dummy text ever and scrambled it to make a type specimen book. It has survived not ."
+        text: "Lorem Ipsum has been the industry's standard dummy text ever an."
     },
     {
         id:3,
@@ -19,6 +19,6 @@ export const FeedbackStore = writable([
     {
         id:4,
         rating: 9,
-        text: "Lorem Ipsum has been the industry's standard dummy text ever and scrambled it to make a type specimen book. It has survived not ."
+        text: "Lorem Ipsum has been the  make a type specimen book. It has survived not ."
     }
 ]);
